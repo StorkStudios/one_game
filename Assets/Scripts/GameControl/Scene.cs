@@ -5,6 +5,7 @@ namespace StorkStudios.CoreNest
 	public enum Scene
 	{
 		LabirynthOne = 0,
+		FNFOne = 1,
 	}
 	
 	public static class SceneExtensions
