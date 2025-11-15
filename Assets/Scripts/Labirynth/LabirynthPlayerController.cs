@@ -1,3 +1,4 @@
+using DG.Tweening;
 using StorkStudios.CoreNest;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,6 +8,12 @@ public class LabirynthPlayerController : Singleton<LabirynthPlayerController>
 {
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private float angleDuration;
+    [SerializeField]
+    private float angle;
+    [SerializeField]
+    private Transform rendererTransform;
 
     private Rigidbody2D rigidbody;
 
@@ -41,6 +48,7 @@ public class LabirynthPlayerController : Singleton<LabirynthPlayerController>
     {
         rigidbody.linearVelocity = Vector2.zero;
         isMoving = false;
+        rendererTransform.DORotate(Vector3.zero, angleDuration / 2);
         SnapToGrid();
 
         if (collision.gameObject.CompareTag(Tag.Death.GetTagString()))
@@ -78,6 +86,8 @@ public class LabirynthPlayerController : Singleton<LabirynthPlayerController>
 
         rigidbody.linearVelocityY = speed;
         isMoving = true;
+
+        rendererTransform.DORotate(Vector3.forward * angle, angleDuration);
     }
 
     private void OnInputDown(InputAction.CallbackContext obj)
@@ -89,6 +99,8 @@ public class LabirynthPlayerController : Singleton<LabirynthPlayerController>
 
         rigidbody.linearVelocityY = -speed;
         isMoving = true;
+
+        rendererTransform.DORotate(-Vector3.forward * angle, angleDuration);
     }
 
     private void OnInputLeft(InputAction.CallbackContext obj)
@@ -100,6 +112,8 @@ public class LabirynthPlayerController : Singleton<LabirynthPlayerController>
 
         rigidbody.linearVelocityX = -speed;
         isMoving = true;
+
+        rendererTransform.DORotate(Vector3.forward * angle, angleDuration);
     }
 
     private void OnInputRight(InputAction.CallbackContext obj)
@@ -111,5 +125,7 @@ public class LabirynthPlayerController : Singleton<LabirynthPlayerController>
 
         rigidbody.linearVelocityX = speed;
         isMoving = true;
+
+        rendererTransform.DORotate(-Vector3.forward * angle, angleDuration);
     }
 }
