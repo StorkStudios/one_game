@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FNFTwo.unity
     guid: 1a8bb8f77e20ffa4cb9281bdcdb76091
+  - enabled: 1
+    path: Assets/Scenes/SimonOne.unity
+    guid: baa4293de478eba408367d67b4a956ac
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 6331c3ed59754bc4c82ecce624d0cc9f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

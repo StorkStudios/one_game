@@ -11,6 +11,7 @@ namespace StorkStudios.CoreNest
 		VNTwo = 4,
 		LabirynthTwo = 5,
 		FNFTwo = 6,
+		SimonOne = 7,
 	}
 	
 	public static class SceneExtensions
