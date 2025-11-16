@@ -34,6 +34,8 @@ public class SimonGame : MonoBehaviour
 
     private void Start()
     {
+        var a = SceneLoader.Instance;
+
         InputHelper.GetInputAction(InputKey.Up).performed += OnInputUp;
         InputHelper.GetInputAction(InputKey.Down).performed += OnInputDown;
         InputHelper.GetInputAction(InputKey.Left).performed += OnInputLeft;

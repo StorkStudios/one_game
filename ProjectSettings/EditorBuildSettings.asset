@@ -32,6 +32,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SimonTwo.unity
     guid: 75aaf6ef87d454f4b960e8a3194c25b5
+  - enabled: 1
+    path: Assets/Scenes/IntermissionOne.unity
+    guid: 499ce5e497ee5f842be98b2b9dd4f9f5
+  - enabled: 1
+    path: Assets/Scenes/IntermissionTwo.unity
+    guid: 181b6f4d34a5e3e49bd1ec6f42ca5bc8
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 6331c3ed59754bc4c82ecce624d0cc9f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
