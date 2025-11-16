@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VNTwo.unity
     guid: b3a8639aae6e30748b61166316202337
+  - enabled: 1
+    path: Assets/Scenes/LabirynthTwo.unity
+    guid: 0662db3fc0531244b943de6bd00d2059
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 6331c3ed59754bc4c82ecce624d0cc9f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
