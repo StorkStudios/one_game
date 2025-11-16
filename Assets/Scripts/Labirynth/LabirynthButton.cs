@@ -9,6 +9,10 @@ public class LabirynthButton : MonoBehaviour
     [SerializeField]
     private Sprite clickedSprite;
     [SerializeField]
+    private AudioSource source;
+    [SerializeField]
+    private AudioClip click;
+    [SerializeField]
     private float delay;
 
     public UnityEvent OnClick = new UnityEvent();
@@ -20,6 +24,7 @@ public class LabirynthButton : MonoBehaviour
             return;
         }
 
+        source.PlayOneShot(click);
         renderer.sprite = clickedSprite;
         this.CallDelayed(delay, OnClick.Invoke);
     }
