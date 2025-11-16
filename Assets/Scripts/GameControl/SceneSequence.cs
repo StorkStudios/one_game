@@ -8,6 +8,8 @@ public class SceneSequence : ScriptableObjectSingleton<SceneSequence>
     [SerializeField]
     private List<Scene> scenes;
 
+    public Scene FirstScene => scenes[0];
+
     public Scene? GetNextScene(Scene scene)
     {
         int index = scenes.IndexOf(scene);

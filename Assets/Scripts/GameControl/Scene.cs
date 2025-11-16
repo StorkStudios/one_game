@@ -4,10 +4,11 @@ namespace StorkStudios.CoreNest
 {
 	public enum Scene
 	{
-		LabirynthOne = 0,
-		FNFOne = 1,
-		VNOne = 2,
-		VNTwo = 3,
+		MainMenu = 0,
+		LabirynthOne = 1,
+		FNFOne = 2,
+		VNOne = 3,
+		VNTwo = 4,
 	}
 	
 	public static class SceneExtensions
