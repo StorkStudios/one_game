@@ -1,4 +1,5 @@
 using StorkStudios.CoreNest;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 using SceneEnum = StorkStudios.CoreNest.Scene;
@@ -8,6 +9,8 @@ public class SceneLoader : PersistentSingleton<SceneLoader>
 {
     public SceneEnum CurrentScene => currentScene;
 
+    [SerializeField]
+    [ReadOnly]
     private SceneEnum currentScene;
 
     public bool flag = false;
