@@ -14,6 +14,16 @@ public class LabirynthPlayerController : Singleton<LabirynthPlayerController>
     private float angle;
     [SerializeField]
     private Transform rendererTransform;
+    [SerializeField]
+    private AudioSource source;
+    [SerializeField]
+    private AudioClip death;
+    [SerializeField]
+    private AudioClip move;
+    [SerializeField]
+    private AudioClip stop;
+    [SerializeField]
+    private AudioClip win;
 
     private Rigidbody2D rigidbody;
 
@@ -55,19 +65,32 @@ public class LabirynthPlayerController : Singleton<LabirynthPlayerController>
 
         if (collision.gameObject.CompareTag(Tag.Death.GetTagString()))
         {
-            SceneLoader.Instance.ReloadScene();
+            source.PlayOneShot(death);
+            isMoving = true;
+
+            this.CallDelayed(death.length, () => SceneLoader.Instance.ReloadScene());
         }
-        if (collision.gameObject.CompareTag(Tag.Win.GetTagString()))
+        else if (collision.gameObject.CompareTag(Tag.Win.GetTagString()))
         {
-            Scene? scene = SceneSequence.Instance.GetNextScene(SceneLoader.Instance.CurrentScene);
-            if (scene.HasValue)
+            source.PlayOneShot(win);
+            isMoving = true;
+
+            this.CallDelayed(win.length, () =>
             {
-                SceneLoader.Instance.LoadScene(scene.Value);
-            }
-            else
-            {
-                print("bulech");
-            }
+                Scene? scene = SceneSequence.Instance.GetNextScene(SceneLoader.Instance.CurrentScene);
+                if (scene.HasValue)
+                {
+                    SceneLoader.Instance.LoadScene(scene.Value);
+                }
+                else
+                {
+                    print("bulech");
+                }
+            });
+        }
+        else
+        {
+            source.PlayOneShot(stop);
         }
     }
 
@@ -86,6 +109,8 @@ public class LabirynthPlayerController : Singleton<LabirynthPlayerController>
             return;
         }
 
+        source.PlayOneShot(move);
+
         rigidbody.linearVelocityY = speed;
         isMoving = true;
 
@@ -98,6 +123,8 @@ public class LabirynthPlayerController : Singleton<LabirynthPlayerController>
         {
             return;
         }
+
+        source.PlayOneShot(move);
 
         rigidbody.linearVelocityY = -speed;
         isMoving = true;
@@ -112,6 +139,8 @@ public class LabirynthPlayerController : Singleton<LabirynthPlayerController>
             return;
         }
 
+        source.PlayOneShot(move);
+
         rigidbody.linearVelocityX = -speed;
         isMoving = true;
 
@@ -124,6 +153,8 @@ public class LabirynthPlayerController : Singleton<LabirynthPlayerController>
         {
             return;
         }
+
+        source.PlayOneShot(move);
 
         rigidbody.linearVelocityX = speed;
         isMoving = true;
