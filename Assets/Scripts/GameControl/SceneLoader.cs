@@ -10,6 +10,8 @@ public class SceneLoader : PersistentSingleton<SceneLoader>
 
     private SceneEnum currentScene;
 
+    public bool flag = false;
+
     private void Start()
     {
         currentScene = (SceneEnum)SceneManager.GetActiveScene().buildIndex;

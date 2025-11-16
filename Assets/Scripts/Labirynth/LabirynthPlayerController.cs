@@ -21,6 +21,8 @@ public class LabirynthPlayerController : Singleton<LabirynthPlayerController>
 
     private void Start()
     {
+        var a = SceneLoader.Instance;
+
         rigidbody = GetComponent<Rigidbody2D>();
 
         InputHelper.GetInputAction(InputKey.Up).performed += OnInputUp;
